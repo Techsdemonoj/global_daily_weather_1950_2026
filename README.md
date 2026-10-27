@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.svg" alt="Global Daily Weather Analysis banner" width="100%">
+  <img src="transformations/banner.svg" alt="Global Daily Weather Analysis banner" width="100%">
 </p>
 
 <p align="center">
@@ -55,7 +55,13 @@ An end-to-end data engineering project that turns raw **GHCN-Daily** weather dat
 ## 🏗️ Architecture
 
 <p align="center">
-  <img src="images/architecture.svg" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
+  <img src="transformations/architecture.svg" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
+</p>
+
+## 🏗️ Databricks Architecture
+
+<p align="center">
+  <img src="transformations/architecture.svg" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
 </p>
 
 | Layer | Purpose | Write mode |
@@ -128,7 +134,7 @@ An end-to-end data engineering project that turns raw **GHCN-Daily** weather dat
 ## 🗺️ Gold Data Model
 
 <p align="center">
-  <img src="images/gold_model.svg" alt="Gold data model diagram" width="100%">
+  <img src="transformations/gold_model.svg" alt="Gold data model diagram" width="100%">
 </p>
 
 > `country_code` is not unique in `dim_station`, so in Power BI create a small `dim_country` table (distinct `country_code`, `country_name`) and relate the country tables to it.
@@ -209,13 +215,7 @@ Bad values are nulled rather than dropping the whole row, so other valid measure
 
 ---
 
-## 📊 Dashboard Preview
-
-> The image below is a **layout mockup** with placeholder numbers. Replace `images/dashboard_mockup.svg` with a real Power BI screenshot (for example `images/dashboard_overview.png`) and update the link.
-
-<p align="center">
-  <img src="images/dashboard_mockup.svg" alt="Dashboard layout mockup" width="90%">
-</p>
+## 📊 Dashboard Overview
 
 | Page | Visuals | Source table |
 |---|---|---|
@@ -225,14 +225,6 @@ Bad values are nulled rather than dropping the whole row, so other valid measure
 | **4. Seasonality** | Month × year heatmap of temperature and rainfall | `gold_country_month_climate` |
 | **5. Extremes** | Hot, frost, and heavy-rain day trends, top 10 countries | `gold_country_year_climate` |
 | **6. Data Quality** | Coverage histogram, reliable years, baseline stations | `gold_station_data_quality` |
-
-**Design tips**
-
-- Use a diverging color scale (blue → white → red) for anomalies, centered at 0.
-- Show `n_stations` next to trend lines so readers can see sample-size changes.
-- Exclude 2026 from annual charts, since it is a partial year.
-
----
 
 ## 🔍 Validation Queries
 
@@ -289,17 +281,6 @@ spark.sql(f"SELECT year, n_stations, tmean_anomaly_c FROM {G}.gold_global_year_t
 
 ---
 
-## 🚀 Roadmap
-
-- [ ] Finalize `config.py` and make all scripts use it
-- [ ] Add `04_validate_pipeline.py` (row counts, null checks, key uniqueness across layers)
-- [ ] Build `silver_station_year_summary` and reconcile with Gold
-- [ ] Switch daily Silver to incremental MERGE loads
-- [ ] Add area-weighted (grid-cell) global averages
-- [ ] Schedule the pipeline as a Databricks Workflow
-- [ ] Publish the Power BI report and replace the mockup with real screenshots
-
----
 
 ## 📚 Data Source
 
