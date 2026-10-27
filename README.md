@@ -1,0 +1,2 @@
+# global_daily_weather_1950_2026
+global_daily_weather_analysis_2026
