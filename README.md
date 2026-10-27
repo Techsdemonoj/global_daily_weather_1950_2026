@@ -61,7 +61,7 @@ An end-to-end data engineering project that turns raw **GHCN-Daily** weather dat
 ## 🏗️ Databricks Architecture
 
 <p align="center">
-  <img src="transformations/pipline.png" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
+  <img src="transformations/pipeline_diagram.png" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
 </p>
 
 | Layer | Purpose | Write mode |
@@ -283,5 +283,6 @@ spark.sql(f"SELECT year, n_stations, tmean_anomaly_c FROM {G}.gold_global_year_t
 
 
 ## 📚 Data Source
+| **Kaggle dataset (files used here)** |(https://www.kaggle.com/datasets/dianatofficial/global-daily-weather-1950-2026) |
 
 GHCN-Daily, NOAA National Centers for Environmental Information, obtained via Kaggle and stored in a Unity Catalog Volume. Please review the original dataset's terms of use before redistributing.
