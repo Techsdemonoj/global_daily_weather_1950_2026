@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/banner.svg" alt="Global Daily Weather Analysis banner" width="100%">
+  <img src="banner.svg" alt="Global Daily Weather Analysis banner" width="100%">
 </p>
 
 <p align="center">
