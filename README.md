@@ -61,7 +61,7 @@ An end-to-end data engineering project that turns raw **GHCN-Daily** weather dat
 ## 🏗️ Databricks Architecture
 
 <p align="center">
-  <img src="transformations/architecture.svg" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
+  <img src="transformations/pipline.png" alt="Architecture diagram: Kaggle to Raw Volume to Bronze to Silver to Gold to Power BI" width="100%">
 </p>
 
 | Layer | Purpose | Write mode |
